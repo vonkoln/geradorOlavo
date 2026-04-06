@@ -81,7 +81,7 @@ body{
 
 /* INFO */
 .info{
-  display:flex;
+  display:inline-block;
   justify-content:center;
   align-items:center;
   text-align:center;
