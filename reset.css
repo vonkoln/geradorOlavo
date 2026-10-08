@@ -93,3 +93,47 @@ footer{margin-top:35px;text-align:center;color:#607d8b;font-size:.85rem}
   .container,.sobre,.artigo-card{padding:20px}
   .nav-link{padding:9px 15px}
 }
+.titulo-lista{
+  color:#37474f;
+  margin:28px 0 12px;
+}
+.lista-artigos{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.artigo-item{
+  background:#fff;
+  border-radius:12px;
+  padding:22px;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  color:#455a64;
+}
+.artigo-item h3{
+  margin:6px 0 10px;
+  font-size:1.35rem;
+}
+.artigo-item h3 a{
+  color:#263238;
+  text-decoration:none;
+}
+.artigo-item h3 a:hover{
+  text-decoration:underline;
+}
+.artigo-meta{
+  color:#607d8b;
+  font-size:.9rem;
+  margin:0 0 8px;
+}
+.ler-artigo{
+  display:inline-block;
+  margin-top:8px;
+  font-weight:700;
+  color:#37474f;
+}
+.artigo-vazio{
+  border:1px dashed #b0bec5;
+}
+.voltar{
+  margin-top:20px;
+}
