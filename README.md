@@ -12,7 +12,7 @@ Site estático para explorar frases atribuídas a Olavo de Carvalho e publicar a
 - Arquivo de artigos com pesquisa e filtro por tema.
 - Modelo HTML para criar novos artigos.
 - Layout responsivo para computadores e dispositivos móveis.
-- Metadados básicos de SEO e sitemap XML.
+- Metadados básicos de SEO e sitemap XML.\n- Páginas institucionais de Sobre, Contato e Política de Privacidade.\n- Integração condicional do script do Google AdSense, inativa até configurar o ID real do editor.
 
 ## Estrutura do projeto
 
