@@ -11,6 +11,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://olavofrases.netlify.app/sobre.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://olavofrases.netlify.app/contato.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://olavofrases.netlify.app/privacidade.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://olavofrases.netlify.app/artigos/olavo-de-carvalho-stf-dias-toffoli-2010.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
