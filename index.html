@@ -3,60 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerador de Frases de Olavo de Carvalho</title>
-  <meta name="description" content="Gerador de frases de Olavo de Carvalho, com uma coleção de citações e uma seção de artigos para reflexão e contexto.">
+  <title>Olavo Frases — Citações, ideias e artigos</title>
+  <meta name="description" content="Explore frases atribuídas a Olavo de Carvalho, pesquise ideias e leia artigos, análises e reflexões sobre cultura, filosofia, política e educação.">
+  <meta name="theme-color" content="#17232d">
   <link rel="canonical" href="https://olavofrases.netlify.app/">
   <link rel="stylesheet" href="reset.css">
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0610793785321752" crossorigin="anonymous"></script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-966018029"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-966018029');
-  </script>
-
-  <!-- Event snippet for Website sale conversion page -->
-  <script>
-    gtag('event', 'conversion', {
-      'send_to': 'AW-966018029/kzb4CMzB3tgDEO2H0cwD',
-      'transaction_id': ''
-    });
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js?id=AW-966018029"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Olavo Frases — Citações, ideias e artigos">
+  <meta property="og:description" content="Um espaço para explorar frases, ideias e artigos com contexto e reflexão.">
+  <meta property="og:url" content="https://olavofrases.netlify.app/">
 </head>
 <body>
-  <nav class="nav" aria-label="Navegação principal">
-    <a class="nav-link active" href="index.html" aria-current="page">Gerador</a>
-    <a class="nav-link" href="artigos.html">Artigos</a>
-  </nav>
-
-  <main>
-    <div class="container">
-      <p class="olavo" id="olavo">Gerador de frases</p>
-      <h1 class="heading">Gerador de Frases de Olavo de Carvalho</h1>
-      <button class="btn" id="btn">Ora Pohha!</button>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Olavo Frases, página inicial">
+        <span class="brand-mark">OF</span>
+        <span class="brand-copy"><strong>OLAVO FRASES</strong><small>Ideias para pensar melhor</small></span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="nav-link active" href="index.html" aria-current="page">Início</a>
+        <a class="nav-link" href="artigos.html">Artigos</a>
+        <a class="nav-link" href="#sobre">Sobre o projeto</a>
+      </nav>
     </div>
+  </header>
 
-    <section class="sobre" aria-labelledby="sobre-titulo">
-      <h2 id="sobre-titulo">Sobre o gerador</h2>
-      <p>Este gerador apresenta aleatoriamente frases atribuídas a Olavo de Carvalho, sem repetição até que toda a coleção tenha sido exibida.</p>
-      <p>Para conhecer textos e reflexões relacionados ao tema, visite a seção <a href="artigos.html">Artigos</a>.</p>
+  <main class="site-main">
+    <section class="intro-grid">
+      <div class="intro-copy">
+        <p class="eyebrow">CITAÇÕES · ENSAIOS · CONTEXTO</p>
+        <h1>Uma frase pode ser o começo de uma grande pergunta.</h1>
+        <p class="lead">Explore uma coleção de frases atribuídas a Olavo de Carvalho e continue a leitura com artigos, análises e reflexões.</p>
+        <a class="text-link" href="artigos.html">Explorar artigos <span aria-hidden="true">→</span></a>
+      </div>
+      <aside class="editor-note">
+        <span class="note-label">LEITURA EM DESTAQUE</span>
+        <p class="note-category">Política e instituições</p>
+        <h2><a href="artigos/olavo-de-carvalho-stf-dias-toffoli-2010.html">O diagnóstico que envelheceu como aviso</a></h2>
+        <p>Uma análise sobre a indicação de Dias Toffoli, o notável saber jurídico e a confiança nas instituições.</p>
+        <a class="text-link" href="artigos/olavo-de-carvalho-stf-dias-toffoli-2010.html">Ler artigo <span aria-hidden="true">→</span></a>
+      </aside>
     </section>
 
-    <div class="info">
-      <p>Esse gerador foi criado por <a href="https://brunostefano.netlify.app/" target="_blank" rel="noopener noreferrer"><strong>Bruno Chapecó</strong></a>.</p>
-      <p>Mereço um café por essa ousadia? ☕ Meu pix: brunovonkoln@gmail.com</p>
-    </div>
+    <section class="quote-section" aria-labelledby="quote-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">GERADOR DE FRASES</p>
+          <h2 id="quote-title">Uma ideia para hoje</h2>
+        </div>
+        <span class="section-index">01 / REFLEXÃO</span>
+      </div>
+      <div class="quote-panel">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote id="olavo" aria-live="polite">Clique no botão para sortear uma frase.</blockquote>
+        <div class="quote-actions">
+          <button class="btn" id="btn" type="button">Sortear frase</button>
+          <button class="btn btn-secondary" id="copy-quote" type="button" disabled>Copiar frase</button>
+        </div>
+        <p class="small-note">As frases são apresentadas como atribuídas ao autor; confira fontes e contexto antes de citar.</p>
+      </div>
+      <div class="quote-search">
+        <label for="quote-search-input">Procurar uma frase na coleção</label>
+        <div class="search-row">
+          <input id="quote-search-input" type="search" placeholder="Digite uma palavra ou expressão…" autocomplete="off">
+          <button class="btn btn-dark" id="search-quotes" type="button">Buscar</button>
+        </div>
+        <p class="search-status" id="search-status" aria-live="polite">Você também pode pesquisar por palavras que se lembra de uma frase.</p>
+        <ul class="quote-results" id="quote-results" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <section class="latest-section" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LEITURA EDITORIAL</p>
+          <h2 id="latest-title">Do gerador à reflexão</h2>
+        </div>
+        <a class="text-link" href="artigos.html">Todos os artigos →</a>
+      </div>
+      <article class="article-card feature-card">
+        <div class="article-card-body">
+          <p class="article-meta"><span>POLÍTICA E INSTITUIÇÕES</span><time datetime="2026-10-07">7 out. 2026</time></p>
+          <h3><a href="artigos/olavo-de-carvalho-stf-dias-toffoli-2010.html">O Diagnóstico que Envelheceu como Aviso: Como a Indicação de Dias Toffoli Antecipou a Crise do STF</a></h3>
+          <p>Como uma crítica à indicação de 2010 abriu questões sobre critérios de nomeação, apadrinhamento político e confiança pública nas instituições.</p>
+          <a class="text-link" href="artigos/olavo-de-carvalho-stf-dias-toffoli-2010.html">Continuar lendo <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="feature-number" aria-hidden="true">01</div>
+      </article>
+    </section>
+
+    <section class="about-section" id="sobre" aria-labelledby="about-title">
+      <p class="eyebrow">SOBRE O PROJETO</p>
+      <h2 id="about-title">Citações são um ponto de partida, não o fim da conversa.</h2>
+      <p>O Olavo Frases reúne frases atribuídas a Olavo de Carvalho e publica textos que procuram desenvolver temas, apresentar argumentos e estimular a leitura crítica. Uma citação curta nem sempre revela o contexto completo de uma ideia.</p>
+      <a class="text-link" href="artigos.html">Conhecer a seção de artigos <span aria-hidden="true">→</span></a>
+    </section>
   </main>
 
-  <footer>
-    <p>Copyright &copy; 2026</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><strong>OLAVO FRASES</strong><p>Citações, artigos e reflexão.</p></div>
+      <div><a href="index.html">Início</a><a href="artigos.html">Artigos</a><a href="#sobre">Sobre</a></div>
+      <p class="copyright">Criado por <a href="https://brunostefano.netlify.app/" target="_blank" rel="noopener noreferrer">Bruno Chapecó</a> · © 2026</p>
+    </div>
   </footer>
-
   <script src="index.js"></script>
 </body>
 </html>
