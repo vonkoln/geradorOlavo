@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Artigos — Olavo Frases</title>
-  <meta name="description" content="Artigos, análises e reflexões relacionados às frases, ideias e temas presentes na obra de Olavo de Carvalho.">
+  <meta name="description" content="Artigos, análises e reflexões sobre ideias, cultura, educação, política, filosofia e temas relacionados à obra de Olavo de Carvalho.">
   <link rel="canonical" href="https://olavofrases.netlify.app/artigos.html">
   <link rel="stylesheet" href="reset.css">
 </head>
+
 <body>
   <nav class="nav" aria-label="Navegação principal">
     <a class="nav-link" href="index.html">Gerador</a>
@@ -17,21 +19,63 @@
   <main class="artigos">
     <header class="artigo-card">
       <h1>Artigos</h1>
-      <p>Textos, análises e reflexões relacionados às frases, ideias e temas associados a Olavo de Carvalho.</p>
+      <p>
+        Textos, análises e reflexões sobre ideias, cultura, educação, política,
+        filosofia e outros temas relacionados ao universo das frases e da obra
+        de Olavo de Carvalho.
+      </p>
     </header>
 
-    <!--
-      MODELO PARA PUBLICAR UM ARTIGO:
-      Duplique o bloco <article> abaixo e substitua título, data e conteúdo.
-      Para SEO, prefira textos originais, úteis e completos.
-      Quando houver vários artigos, o ideal é criar uma página HTML própria
-      para cada artigo e usar esta página como índice.
-    -->
-    <article class="artigo-card">
-      <h2>Em breve</h2>
-      <p class="artigo-meta">Primeiro artigo em preparação</p>
-      <p>Esta seção será atualizada com os artigos publicados no site.</p>
-    </article>
+    <section aria-labelledby="lista-titulo">
+      <h2 id="lista-titulo" class="titulo-lista">Todos os artigos</h2>
+
+      <!--
+        LISTA DE ARTIGOS
+
+        Para publicar um novo texto:
+        1. Crie uma página HTML própria dentro da pasta "artigos".
+        2. Adicione um novo bloco <article> nesta lista.
+        3. Coloque no <h3> o título do artigo.
+        4. Informe a data de publicação.
+        5. Escreva um resumo original.
+        6. Aponte o link para a página completa.
+
+        Exemplo:
+
+        <article class="artigo-item">
+          <p class="artigo-meta">
+            <time datetime="2026-10-10">10 de outubro de 2026</time>
+          </p>
+          <h3>
+            <a href="artigos/nome-do-artigo.html">
+              Título do artigo
+            </a>
+          </h3>
+          <p>
+            Resumo curto e interessante explicando ao leitor o que ele
+            encontrará no artigo.
+          </p>
+          <a class="ler-artigo" href="artigos/nome-do-artigo.html">
+            Ler artigo →
+          </a>
+        </article>
+      -->
+
+      <div class="lista-artigos">
+        <article class="artigo-item artigo-vazio">
+          <h3>Novos artigos em breve</h3>
+          <p>
+            Esta página será o índice dos artigos publicados no site.
+            Cada texto terá sua própria página para facilitar a leitura,
+            compartilhamento e indexação pelos mecanismos de busca.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="artigo-card voltar">
+      <a href="index.html">← Voltar para o gerador de frases</a>
+    </div>
   </main>
 
   <footer>
