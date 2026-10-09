@@ -1,18 +1,12 @@
 /*
- * Integração opcional do Google AdSense para o Olavo Frases.
+ * Integração do Google AdSense para o Olavo Frases.
  *
- * Antes de ativar:
- * 1. Cadastre/valide o site na sua conta AdSense.
- * 2. Substitua o valor vazio abaixo pelo ID de editor exibido pelo Google,
- *    no formato ca-pub-0000000000000000.
- * 3. Confirme a política de privacidade e as configurações de consentimento.
- * 4. Configure anúncios automáticos ou blocos na conta AdSense.
- *
- * Enquanto o ID estiver vazio ou inválido, nenhum script de publicidade será
- * carregado. Este arquivo não substitui a aprovação do site pelo Google.
+ * O ID abaixo foi informado pelo proprietário do site.
+ * A aprovação do site e as configurações de anúncios continuam sendo
+ * gerenciadas no painel oficial do Google AdSense.
  */
 (() => {
-  const publisherId = ""; // Preencher somente com o ID real da conta AdSense.
+  const publisherId = "ca-pub-0610793785321752";
   if (!/^ca-pub-\d{16}$/.test(publisherId)) return;
   if (document.querySelector('script[data-olavo-adsense="true"]')) return;
 
