@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#17232d">
+  <title>Modo Desenvolvedor — Olavo Frases</title>
+  <link rel="stylesheet" href="/reset.css">
+  <style>
+    .dev-main{width:min(1180px,calc(100% - 32px));margin:36px auto 64px}
+    .dev-hero{padding:28px;background:#17232d;color:#fff;border-top:4px solid #b94e2b}
+    .dev-hero h1{margin:0 0 8px;font:600 clamp(1.8rem,4vw,2.7rem) Georgia,serif}
+    .dev-hero p{color:#d2dade;margin:0}
+    .dev-panel{margin-top:22px;padding:24px;background:#fff;border:1px solid #dedfd9}
+    .dev-panel h2{margin:0 0 14px;font:600 1.5rem Georgia,serif}
+    .dev-login{max-width:480px}
+    .dev-field{display:grid;gap:7px;margin:14px 0}
+    .dev-field label{font-weight:750}
+    .dev-field input,.dev-search{width:100%;min-height:44px;padding:10px 12px;border:1px solid #b9c2c6;border-radius:3px}
+    .dev-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+    .dev-button{min-height:42px;padding:9px 15px;border:1px solid #17232d;background:#17232d;color:#fff;font:700 .9rem inherit;cursor:pointer;border-radius:3px}
+    .dev-button:disabled{opacity:.5;cursor:wait}
+    .dev-button.secondary{background:#fff;color:#17232d}
+    .dev-message{margin:12px 0;padding:11px 13px;background:#f1f0eb;border-left:4px solid #8b969b;overflow-wrap:anywhere}
+    .dev-message.error{border-color:#b42318}
+    .dev-message[hidden], [hidden]{display:none!important}
+    .dev-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+    .dev-stat{padding:15px;background:#f6f4ef;border:1px solid #dedfd9}
+    .dev-stat strong{display:block;font-size:1.8rem;line-height:1.3}
+    .dev-stat span{color:#53636c;font-size:.84rem}
+    .dev-toolbar{display:grid;grid-template-columns:minmax(200px,1fr) minmax(160px,.4fr);gap:12px;margin:16px 0}
+    .dev-table-wrap{overflow-x:auto}
+    .dev-table{width:100%;border-collapse:collapse;font-size:.9rem}
+    .dev-table th,.dev-table td{padding:12px 10px;border-bottom:1px solid #dedfd9;text-align:left;vertical-align:top}
+    .dev-table th{background:#f6f4ef;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+    .dev-url{overflow-wrap:anywhere;min-width:210px}
+    .dev-url a{color:#923a20}
+    .dev-status{display:inline-flex;align-items:center;gap:7px;font-weight:800;white-space:nowrap}
+    .dev-dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#d4a72c;flex-shrink:0}
+    .dev-status.indexed .dev-dot{background:#16803c}
+    .dev-status.not_indexed .dev-dot{background:#c62828}
+    .dev-status.unknown .dev-dot{background:#d4a72c}
+    .dev-reason{max-width:290px;color:#53636c;font-size:.82rem;overflow-wrap:anywhere}
+    .dev-check{padding:6px 9px;border:1px solid #cbd0ce;background:white;color:#17232d;cursor:pointer;border-radius:3px}
+    .dev-footnote{color:#65747d;font-size:.85rem}
+    .dev-legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0;color:#53636c;font-size:.84rem}
+    @media(max-width:760px){.dev-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dev-toolbar{grid-template-columns:1fr}.dev-panel{padding:16px}.dev-table th,.dev-table td{padding:9px 7px}.dev-main{width:calc(100% - 20px)}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Olavo Frases, página inicial">
+        <span class="brand-mark">OF</span><span class="brand-copy"><strong>OLAVO FRASES</strong><small>Área de desenvolvedor</small></span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal"><a class="nav-link" href="/">Voltar ao site</a></nav>
+    </div>
+  </header>
+  <main class="dev-main">
+    <section class="dev-hero">
+      <p class="eyebrow">ÁREA PRIVADA · SEARCH CONSOLE</p>
+      <h1>Monitor de indexação</h1>
+      <p>Consulte o estado conhecido pelo Google para as páginas públicas de frasesdoolavo.online.</p>
+    </section>
+
+    <section id="login-panel" class="dev-panel dev-login" aria-labelledby="login-title">
+      <h2 id="login-title">Acesso do desenvolvedor</h2>
+      <p>Entre com a senha configurada nas variáveis de ambiente da hospedagem.</p>
+      <form id="login-form">
+        <div class="dev-field"><label for="password">Senha de desenvolvedor</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="16"></div>
+        <button class="dev-button" type="submit" id="login-button">Entrar</button>
+      </form>
+      <p id="login-message" class="dev-message" role="status" hidden></p>
+      <p class="dev-footnote">A sessão expira após 8 horas. A senha não é armazenada no navegador.</p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="dev-panel">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div><h2>Visão geral</h2><p id="last-updated" class="dev-footnote">Carregando páginas públicas…</p></div>
+          <div class="dev-actions" style="margin:0"><button class="dev-button" id="refresh-all">Verificar todas</button><button class="dev-button secondary" id="reload-list">Atualizar lista</button><button class="dev-button secondary" id="logout">Sair</button></div>
+        </div>
+        <div class="dev-stats" aria-live="polite">
+          <div class="dev-stat"><strong id="total-count">0</strong><span>Total de URLs públicas</span></div>
+          <div class="dev-stat"><strong id="indexed-count">0</strong><span>Indexadas</span></div>
+          <div class="dev-stat"><strong id="not-indexed-count">0</strong><span>Não indexadas</span></div>
+          <div class="dev-stat"><strong id="unknown-count">0</strong><span>Desconhecidas / pendentes</span></div>
+        </div>
+        <div class="dev-legend" aria-label="Legenda de status">
+          <span class="dev-status indexed"><i class="dev-dot"></i> Verde: indexada</span>
+          <span class="dev-status not_indexed"><i class="dev-dot"></i> Vermelho: não indexada</span>
+          <span class="dev-status unknown"><i class="dev-dot"></i> Amarelo: desconhecido / erro</span>
+        </div>
+        <p id="dashboard-message" class="dev-message" role="status" hidden></p>
+      </div>
+      <div class="dev-panel">
+        <h2>Páginas públicas</h2>
+        <div class="dev-toolbar">
+          <input id="search" class="dev-search" type="search" placeholder="Pesquisar por URL ou título…" aria-label="Pesquisar por URL ou título">
+          <select id="filter" class="dev-search" aria-label="Filtrar por status">
+            <option value="all">Todos os status</option><option value="indexed">Indexadas</option><option value="not_indexed">Não indexadas</option><option value="unknown">Desconhecidas / pendentes</option>
+          </select>
+        </div>
+        <div class="dev-table-wrap">
+          <table class="dev-table">
+            <thead><tr><th>Página</th><th>Status Google</th><th>Última verificação</th><th>Motivo / estado</th><th>Ação</th></tr></thead>
+            <tbody id="url-rows"><tr><td colspan="5">Carregando…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="dev-footnote">O status é uma fotografia dos dados disponíveis na Search Console. Não garante que a URL permanecerá indexada. “Verificar todas” consulta as URLs em sequência para reduzir picos de requisições; consultas recentes podem ser atendidas por cache de 15 minutos.</p>
+      </div>
+    </section>
+    <p id="global-message" class="dev-message" role="status" hidden></p>
+  </main>
+  <script>
+    const API = "/api/dev";
+    const $ = id => document.getElementById(id);
+    let pages = [];
+    let busy = false;
+    const labels = { indexed: "Indexada", not_indexed: "Não indexada", unknown: "Desconhecida" };
+    const formatDate = value => value ? new Date(value).toLocaleString("pt-BR") : "Ainda não consultada";
+    function showMessage(element, message, error = false) {
+      element.textContent = message;
+      element.hidden = !message;
+      element.classList.toggle("error", error);
+    }
+    async function api(action, options = {}) {
+      const result = await fetch(API + "?action=" + encodeURIComponent(action), {
+        credentials: "same-origin",
+        cache: "no-store",
+        ...options,
+        headers: { "Content-Type": "application/json", ...(options.headers || {}) }
+      });
+      const data = await result.json().catch(() => ({}));
+      if (result.status === 401 && action !== "login") {
+        showDashboard(false);
+        throw new Error("Sua sessão expirou. Entre novamente.");
+      }
+      if (!result.ok) throw new Error(data.error || "Falha na comunicação com o servidor.");
+      return data;
+    }
+    function showDashboard(authed) {
+      $("login-panel").hidden = authed;
+      $("dashboard").hidden = !authed;
+      if (!authed) $("password").value = "";
+    }
+    function currentCounts() {
+      const count = { indexed: 0, not_indexed: 0, unknown: 0 };
+      pages.forEach(page => count[page.status || "unknown"]++);
+      $("total-count").textContent = pages.length;
+      $("indexed-count").textContent = count.indexed;
+      $("not-indexed-count").textContent = count.not_indexed;
+      $("unknown-count").textContent = count.unknown;
+    }
+    function render() {
+      currentCounts();
+      const query = $("search").value.trim().toLocaleLowerCase("pt-BR");
+      const filter = $("filter").value;
+      const visible = pages.filter(page =>
+        (filter === "all" || (page.status || "unknown") === filter) &&
+        (page.url + " " + page.title).toLocaleLowerCase("pt-BR").includes(query)
+      );
+      const tbody = $("url-rows");
+      tbody.replaceChildren();
+      if (!visible.length) {
+        const row = document.createElement("tr"), cell = document.createElement("td");
+        cell.colSpan = 5; cell.textContent = "Nenhuma página corresponde aos filtros.";
+        row.append(cell); tbody.append(row); return;
+      }
+      visible.forEach(page => {
+        const row = document.createElement("tr");
+        const urlCell = document.createElement("td"); urlCell.className = "dev-url";
+        const link = document.createElement("a"); link.href = page.url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = page.title || page.url;
+        const address = document.createElement("div"); address.className = "dev-footnote"; address.textContent = page.url;
+        urlCell.append(link, address);
+        const statusCell = document.createElement("td");
+        const status = document.createElement("span"); status.className = "dev-status " + (page.status || "unknown");
+        const dot = document.createElement("i"); dot.className = "dev-dot";
+        const label = document.createElement("span"); label.textContent = labels[page.status || "unknown"] || labels.unknown;
+        status.append(dot, label); statusCell.append(status);
+        const checkedCell = document.createElement("td"); checkedCell.textContent = formatDate(page.checkedAt);
+        const reasonCell = document.createElement("td"); reasonCell.className = "dev-reason";
+        reasonCell.textContent = page.reason || "Nenhuma consulta feita.";
+        if (page.lastCrawlTime) reasonCell.append(document.createElement("br"), document.createTextNode("Último rastreamento: " + formatDate(page.lastCrawlTime)));
+        const actionCell = document.createElement("td");
+        const button = document.createElement("button"); button.className = "dev-check"; button.type = "button"; button.textContent = "Verificar";
+        button.disabled = busy;
+        button.addEventListener("click", () => inspectPage(page, button));
+        actionCell.append(button);
+        row.append(urlCell, statusCell, checkedCell, reasonCell, actionCell);
+        tbody.append(row);
+      });
+    }
+    async function loadPages() {
+      showMessage($("dashboard-message"), "Descobrindo páginas públicas…");
+      try {
+        const data = await api("urls");
+        const old = new Map(pages.map(page => [page.url, page]));
+        pages = data.urls.map(item => ({ ...item, ...(old.get(item.url) || {}), title: item.title || old.get(item.url)?.title, type: item.type }));
+        $("last-updated").textContent = "Lista descoberta em " + formatDate(data.discoveredAt);
+        showMessage($("dashboard-message"), "Lista atualizada. A cor amarela permanece até uma consulta válida da API.");
+        render();
+      } catch (error) { showMessage($("dashboard-message"), error.message, true); }
+    }
+    async function inspectPage(page, button) {
+      if (busy && button) return;
+      if (button) button.disabled = true;
+      try {
+        const result = await api("inspect", {
+          method: "POST",
+          body: JSON.stringify({ url: page.url })
+        });
+        Object.assign(page, result);
+        showMessage($("dashboard-message"), "Consulta concluída para " + page.url + (result.cached ? " (resultado em cache)." : "."));
+      } catch (error) {
+        page.status = "unknown"; page.reason = error.message; page.checkedAt = new Date().toISOString();
+        showMessage($("dashboard-message"), error.message, true);
+      } finally { if (button) button.disabled = false; render(); }
+    }
+    async function inspectAll() {
+      if (busy || !pages.length) return;
+      busy = true;
+      $("refresh-all").disabled = true;
+      $("reload-list").disabled = true;
+      let done = 0;
+      try {
+        for (const page of pages) {
+          showMessage($("dashboard-message"), "Consultando " + (done + 1) + " de " + pages.length + ": " + page.url);
+          await inspectPage(page, null);
+          done++;
+          if (done < pages.length) await new Promise(resolve => setTimeout(resolve, 1200));
+        }
+        showMessage($("dashboard-message"), "Concluído: " + done + " URLs processadas. Confira os motivos e os estados desconhecidos.");
+      } finally {
+        busy = false;
+        $("refresh-all").disabled = false;
+        $("reload-list").disabled = false;
+        render();
+      }
+    }
+    $("login-form").addEventListener("submit", async event => {
+      event.preventDefault();
+      const button = $("login-button"); button.disabled = true;
+      showMessage($("login-message"), "");
+      try {
+        await api("login", { method: "POST", body: JSON.stringify({ password: $("password").value }) });
+        showDashboard(true);
+        await loadPages();
+      } catch (error) { showMessage($("login-message"), error.message, true); }
+      finally { button.disabled = false; }
+    });
+    $("logout").addEventListener("click", async () => {
+      try { await api("logout", { method: "POST", body: "{}" }); } catch {}
+      pages = []; showDashboard(false); showMessage($("global-message"), "Sessão encerrada.");
+    });
+    $("reload-list").addEventListener("click", loadPages);
+    $("refresh-all").addEventListener("click", inspectAll);
+    $("search").addEventListener("input", render);
+    $("filter").addEventListener("change", render);
+    (async function init() {
+      try {
+        await api("status");
+        showDashboard(true);
+        await loadPages();
+      } catch { showDashboard(false); }
+    })();
+  </script>
+</body>
+</html>
