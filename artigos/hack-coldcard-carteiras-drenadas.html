@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hack da Coldcard: como carteiras frias foram drenadas em minutos — Olavo Frases</title>
+  <meta name="description" content="Entenda o ataque às carteiras Coldcard iniciado em 30 de julho de 2026: falha na geração de sementes, cronologia, rastreamento on-chain e o que se sabe sobre os responsáveis.">
+  <meta name="theme-color" content="#17232d">
+  <link rel="canonical" href="https://frasesdoolavo.online/artigos/hack-coldcard-carteiras-drenadas.html">
+  <link rel="stylesheet" href="../reset.css">
+  <script src="../adsense.js" defer></script>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hack da Coldcard: como carteiras frias foram drenadas em minutos">
+  <meta property="og:description" content="Cronologia, falha técnica, rastreamento dos bitcoins e limites do que se sabe sobre o ataque de 2026.">
+  <meta property="og:url" content="https://frasesdoolavo.online/artigos/hack-coldcard-carteiras-drenadas.html">
+  <meta property="og:site_name" content="Olavo Frases">
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Olavo Frases, página inicial"><span class="brand-mark">OF</span><span class="brand-copy"><strong>OLAVO FRASES</strong><small>Ideias para pensar melhor</small></span></a>
+    <nav class="nav" aria-label="Navegação principal"><a class="nav-link" href="../index.html">Início</a><a class="nav-link active" href="../artigos.html" aria-current="page">Artigos</a><a class="nav-link" href="../sobre.html">Sobre</a></nav>
+  </div></header>
+  <main class="site-main article-main">
+    <article class="article-content">
+      <p class="eyebrow">SEGURANÇA DIGITAL · BITCOIN</p>
+      <h1>O hack da Coldcard: como carteiras frias foram drenadas quase simultaneamente</h1>
+      <p class="article-meta"><span>SEGURANÇA E TECNOLOGIA</span><time datetime="2026-10-09">9 de outubro de 2026</time></p>
+      <p class="lead">Em 30 de julho de 2026, milhares de endereços atribuídos a carteiras criadas com dispositivos Coldcard começaram a perder seus bitcoins. O caso não exigiu que o invasor roubasse os aparelhos: a fragilidade estava na geração das sementes criptográficas, anos antes de os fundos serem movimentados.</p>
+      <p><strong>Nota editorial:</strong> este texto separa fatos publicados por pesquisadores, inferências de análise on-chain e pontos ainda não confirmados. Um endereço de Bitcoin não revela, por si só, a identidade de quem o controla.</p>
+
+      <h2>O que aconteceu e quando?</h2>
+      <p>Segundo a reconstrução publicada por Galaxy Research, as primeiras movimentações atribuídas ao ataque começaram na madrugada de <strong>30 de julho de 2026 (UTC)</strong>. A primeira onda mais conhecida concentrou-se em uma janela de cerca de <strong>41 minutos, entre 01h10 e 01h51 UTC</strong>. A análise independente da Bitquery identificou milhares de entradas drenadas e endereços coletores recém-criados; números exatos variam conforme os critérios de atribuição.</p>
+      <p>O evento não foi necessariamente obra de uma única pessoa. Em agosto, a Galaxy informou ter identificado pelo menos 33 outras “pegadas” de atividade além das três ondas principais e avaliou que múltiplos operadores exploraram a mesma vulnerabilidade. Em 14 de agosto, a empresa atribuiu com alta confiança cerca de <strong>1.778,84 BTC a mais de 8.600 endereços</strong>, com valor estimado de US$ 112,7 milhões na época. O total inclui endereços que os pesquisadores consideram vítimas prováveis; não equivale a uma lista de pessoas identificadas.</p>
+      <p>Os números evoluíram ao longo das investigações porque vítimas se apresentaram depois do roubo e novas movimentações foram correlacionadas. Portanto, cifras de publicações diferentes podem refletir datas de corte e níveis de confiança distintos, não necessariamente uma contradição.</p>
+
+      <h2>A falha técnica: a segurança foi comprometida na origem</h2>
+      <p>Uma carteira de hardware mantém as chaves privadas separadas de um computador conectado à internet. Mas a proteção depende de uma condição anterior: a chave precisa nascer de aleatoriedade forte. Se a semente é previsível, o fato de o dispositivo permanecer desligado ou guardado em um cofre não corrige o problema.</p>
+      <p>De acordo com as análises da Galaxy Research e da TRM Labs, uma mudança de firmware publicada em março de 2021 introduziu um defeito no caminho usado para obter entropia durante a criação da carteira. Em determinadas condições, o processo deixou de usar adequadamente a fonte de aleatoriedade de hardware e recorreu a uma alternativa de software insuficiente. Informações fixas do dispositivo e estados de temporização passaram a ter peso indevido na geração da semente.</p>
+      <p>Em vez de precisar invadir cada aparelho, o operador podia gerar candidatos de sementes fora da linha, derivar os endereços correspondentes e compará-los com o livro-razão público do Bitcoin. Quando encontrava uma chave correspondente a um endereço com saldo, podia assinar uma transação e transferir os fundos. É por isso que o ataque pareceu simultâneo: a busca e a preparação podiam ocorrer em paralelo, e as transações podiam ser transmitidas em lotes.</p>
+      <p>As estimativas sobre a entropia efetiva variam por modelo e análise. A TRM descreveu casos em que a força caiu de cerca de 128 bits para até 40 bits; a Galaxy diferenciou estimativas para gerações mais antigas e mais novas. Não é correto concluir que todo aparelho Coldcard, em qualquer versão, foi afetado. Consulte a <a href="https://coldcard.com/security/status" target="_blank" rel="noopener noreferrer">página oficial de status de segurança da Coldcard</a> para a orientação atualizada por modelo e firmware.</p>
+
+      <h2>O que se sabe sobre o atacante?</h2>
+      <p>Os padrões on-chain sugerem operadores tecnicamente capazes de automatizar geração e verificação de candidatos, monitorar endereços e consolidar fundos em transações coordenadas. A rapidez da primeira onda e as diferenças entre ondas apontam para automação e para mais de um padrão operacional. Isso, porém, não permite inferir com segurança nacionalidade, nome, localização física ou vínculo com um grupo criminoso.</p>
+      <p>A Galaxy considerou provável que alguns operadores tenham usado modelos de IA sem salvaguardas de cibersegurança, mas isso é uma avaliação de pesquisadores — não uma identificação forense definitiva de ferramenta ou autor. A TRM também evitou atribuir o incidente a um grupo específico, citando diferenças nos padrões de transação e a possibilidade de múltiplos agentes. Até onde as fontes citadas permitem afirmar, <strong>não há uma identidade pública confirmada para os responsáveis</strong>.</p>
+
+      <h2>Os endereços estão sendo monitorados?</h2>
+      <p><strong>Sim: há monitoramento público e acompanhamento por empresas de análise e investigadores.</strong> A Galaxy informou que compartilhou listas de endereços atribuídos aos operadores com corretoras de criptoativos, empresas de compliance e autoridades policiais, para permitir alertas ou bloqueios quando os fundos chegarem a intermediários centralizados. O site independente <a href="https://www.coldcardwatch.com/" target="_blank" rel="noopener noreferrer">Coldcard Watch</a> também acompanha conjuntos de endereços e transações atribuídos ao incidente.</p>
+      <p>Isso não significa que cada endereço esteja congelado, que todas as autoridades tenham confirmado a atribuição ou que os bitcoins possam ser recuperados automaticamente. No Bitcoin, as transações são públicas, mas o controle de um endereço é pseudônimo. Um endereço pode ser monitorado sem que se conheça a pessoa por trás dele; e uma empresa pode alertar sobre um depósito suspeito sem ter poder para bloquear moedas em uma carteira autocustodiada.</p>
+      <p>Monitorar é importante por quatro razões: preservar a trilha de transações; avisar intermediários antes que fundos suspeitos sejam convertidos ou depositados; relacionar novas movimentações a clusters já conhecidos; e produzir evidências verificáveis para investigações e eventuais pedidos judiciais. Quanto mais cedo uma corretora identifica fundos vinculados a um roubo, maior a chance de aplicar seus procedimentos de conformidade antes de uma retirada. Isso melhora as possibilidades de intervenção, mas não garante recuperação.</p>
+
+      <h2>Quanto ainda estava parado e quanto se moveu?</h2>
+      <p>No balanço publicado em 14 de agosto, a Galaxy estimou que cerca de <strong>1.531 BTC dos 1.778,84 BTC atribuídos com alta confiança ainda não haviam se movido</strong> após o roubo. Aproximadamente 246 BTC tinham seguido para outras transações; a empresa estimou que 65% desse volume movimentado entrou em transações CoinJoin e 35% continuou em outras rotas on-chain, incluindo cadeias de transações em que parcelas são encaminhadas sucessivamente (“peel chains”). São dados de uma fotografia temporal: movimentações posteriores alteram o quadro.</p>
+      <p>Uma atualização da imprensa especializada em setembro relatou que um operador da terceira onda havia trocado parte dos fundos por Ether via THORChain e, depois, movimentado bitcoins em transações CoinJoin. Em 7 de setembro, o The Block reportou 97,09 BTC movimentados pelo operador dessa onda, enquanto aproximadamente 82% do total atribuído ao incidente permanecia nos endereços originais controlados pelos operadores, segundo a Galaxy. Esse número diz respeito a uma atualização e a um subconjunto específico; não deve ser confundido com o total roubado no caso inteiro.</p>
+
+      <h2>O que usuários de Coldcard devem fazer?</h2>
+      <p>Quem criou uma semente durante o período potencialmente vulnerável não deve presumir que atualizar o firmware torne aquela semente antiga segura. A correção do programa não muda retroativamente a aleatoriedade de uma chave já criada. Siga a orientação oficial do fabricante para avaliar a exposição e, quando indicado, crie uma carteira nova com uma semente nova em ambiente atualizado e transfira os fundos com cuidado. Nunca digite sua frase-semente em sites que prometem “verificar” se a carteira foi afetada.</p>
+      <p>O caso também reforça a importância de reduzir pontos únicos de falha. A Galaxy observou que as transações de roubo analisadas não drenaram carteiras multisig. Isso não torna qualquer multisig infalível, mas mostra como exigir mais de uma chave independente pode limitar o dano de um único defeito.</p>
+
+      <h2>Fontes e leitura adicional</h2>
+      <ul>
+        <li><a href="https://www.galaxy.com/insights/research/coldcard-exploit-abates-as-total-losses-climb-to-at-least-1700-btc" target="_blank" rel="noopener noreferrer">Galaxy Research — balanço das perdas e movimentações, 14/08/2026</a></li>
+        <li><a href="https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack" target="_blank" rel="noopener noreferrer">TRM Labs — análise técnica do exploit, 05/08/2026</a></li>
+        <li><a href="https://bitquery.io/investigations/coldcard-wallet-hack" target="_blank" rel="noopener noreferrer">Bitquery — reconstrução on-chain da primeira onda</a></li>
+        <li><a href="https://www.theblock.co/news/defi/2026-09-07-coldcard-exploiter-moves-wave-3-413661" target="_blank" rel="noopener noreferrer">The Block — movimentações da terceira onda, 07/09/2026</a></li>
+        <li><a href="https://coldcard.com/security/status" target="_blank" rel="noopener noreferrer">Coldcard — status oficial de segurança e recomendações</a></li>
+        <li><a href="https://www.coldcardwatch.com/" target="_blank" rel="noopener noreferrer">Coldcard Watch — monitoramento público de endereços</a></li>
+      </ul>
+      <p class="article-note">Atualizado em 9 de outubro de 2026. Valores, agrupamentos e atribuições on-chain são estimativas publicadas por terceiros e podem ser revistos. Este texto é informativo, não aconselhamento financeiro ou jurídico.</p>
+      <nav class="related-reading" aria-label="Leituras relacionadas"><h2>Leia também</h2><ul><li><a href="lavagem-bitcoins-roubados-coldcard-rastreamento.html">Como os bitcoins roubados da Coldcard estão sendo movimentados e lavados</a></li><li><a href="requisitos-ministro-stf-constituicao.html">O que a Constituição exige para alguém ser ministro do STF?</a></li><li><a href="../artigos.html">Voltar à biblioteca de artigos</a></li></ul></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p>Olavo Frases — ideias para pensar melhor.</p><nav aria-label="Links do rodapé"><a href="../sobre.html">Sobre</a><a href="../contato.html">Contato</a><a href="../privacidade.html">Privacidade</a></nav></div></footer>
+</body>
+</html>
