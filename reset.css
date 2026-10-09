@@ -211,3 +211,34 @@ input[type="search"]:focus { border-color: var(--accent); outline: 2px solid #e5
   .legal-main { padding: 24px 0 40px; }
   .legal-content { padding: 24px 20px; }
 }
+
+/* Editorial cover images used by article pages */
+.article-cover {
+  width: 100%;
+  margin: 22px 0 30px;
+}
+.article-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 8px;
+  background: #e9e7e1;
+}
+.article-cover figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+.article-cover figcaption a {
+  color: var(--accent-dark);
+  text-underline-offset: 2px;
+}
+@media (max-width: 600px) {
+  .article-cover { margin: 18px 0 24px; }
+  .article-cover img { max-height: 300px; border-radius: 5px; }
+}
