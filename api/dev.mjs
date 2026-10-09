@@ -47,12 +47,22 @@ function validSession(event, secret) {
   } catch { return false; }
 }
 function originAllowed(event) {
-  const origin = event.headers.origin;
-  if (!origin) return false;
-  // Valida contra as origens oficiais, sem depender do Host interno que a Vercel
-  // pode apresentar à função depois de um proxy ou redirecionamento.
-  return origin === "https://frasesdoolavo.online" ||
-    origin === "https://www.frasesdoolavo.online";
+  const headers = event.headers || {};
+  const origin = headers.origin;
+  const allowedOrigins = new Set([
+    "https://frasesdoolavo.online",
+    "https://www.frasesdoolavo.online"
+  ]);
+
+  // Se o navegador envia Origin, exige uma das origens oficiais.
+  if (origin) return allowedOrigins.has(String(origin).replace(/\/$/, ""));
+
+  // Alguns navegadores não enviam Origin em GET same-origin. Como o painel
+  // usa Referrer-Policy: no-referrer, Referer também pode estar ausente.
+  // Nesse caso, só permite leitura quando Fetch Metadata confirma same-origin.
+  const method = String(event.httpMethod || "GET").toUpperCase();
+  const fetchSite = String(headers["sec-fetch-site"] || "").toLowerCase();
+  return method === "GET" && fetchSite === "same-origin";
 }
 function parseBody(event) {
   try {
