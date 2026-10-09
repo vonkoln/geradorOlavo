@@ -205,47 +205,47 @@ export default async function handler(req, res) {
   const action = new URL(path, SITE_ORIGIN).searchParams.get("action");
   const sessionSecret = process.env.DEV_SESSION_SECRET;
   const configuredPassword = process.env.DEV_PASSWORD;
-  if (method === "OPTIONS") return response(res, res, 204, {});
-  if (!originAllowed(event)) return response(403, { error: "Origem não autorizada." });
+  if (method === "OPTIONS") return response(res, res, res, 204, {});
+  if (!originAllowed(event)) return response(res, 403, { error: "Origem não autorizada." });
   if (action === "login" && method === "POST") {
     if (!sessionSecret || sessionSecret.length < 32 || !configuredPassword || configuredPassword.length < 16) {
-      return response(503, { error: "Configure DEV_PASSWORD (mínimo 16 caracteres) e DEV_SESSION_SECRET (mínimo 32 caracteres) na Vercel." });
+      return response(res, 503, { error: "Configure DEV_PASSWORD (mínimo 16 caracteres) e DEV_SESSION_SECRET (mínimo 32 caracteres) na Vercel." });
     }
     const ip = String(event.headers["x-forwarded-for"] || "unknown").split(",")[0].trim();
     const attempt = loginAttempts.get(ip) || { count: 0, until: 0 };
-    if (attempt.until > Date.now() && attempt.count >= 8) return response(429, { error: "Muitas tentativas. Aguarde 15 minutos." });
+    if (attempt.until > Date.now() && attempt.count >= 8) return response(res, 429, { error: "Muitas tentativas. Aguarde 15 minutos." });
     if (attempt.until < Date.now()) { attempt.count = 0; attempt.until = Date.now() + 15 * 60 * 1000; }
     const body = parseBody(event);
     if (!body || typeof body.password !== "string" || !safeEqual(body.password, configuredPassword)) {
       attempt.count++; loginAttempts.set(ip, attempt);
-      return response(401, { error: "Senha incorreta." });
+      return response(res, 401, { error: "Senha incorreta." });
     }
     loginAttempts.delete(ip);
-    return response(200, { ok: true }, {
+    return response(res, 200, { ok: true }, {
       "Set-Cookie": "of_dev_session=" + makeSession(sessionSecret) + "; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=" + SESSION_SECONDS
     });
   }
   if (action === "logout" && method === "POST") {
-    return response(200, { ok: true }, { "Set-Cookie": "of_dev_session=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0" });
+    return response(res, 200, { ok: true }, { "Set-Cookie": "of_dev_session=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0" });
   }
-  if (!sessionSecret || !validSession(event, sessionSecret)) return response(401, { error: "Sessão encerrada ou não autenticada." });
+  if (!sessionSecret || !validSession(event, sessionSecret)) return response(res, 401, { error: "Sessão encerrada ou não autenticada." });
   if (action === "urls" && method === "GET") {
-    try { return response(200, { urls: await discoverUrls(), discoveredAt: new Date().toISOString() }); }
+    try { return response(res, 200, { urls: await discoverUrls(), discoveredAt: new Date().toISOString() }); }
     catch (error) {
       console.error("Falha ao descobrir URLs públicas:", error.message);
-      return response(502, { error: "Não foi possível descobrir as páginas públicas do site." });
+      return response(res, 502, { error: "Não foi possível descobrir as páginas públicas do site." });
     }
   }
   if (action === "inspect" && method === "POST") {
     const body = parseBody(event);
     const url = body && safePublicUrl(body.url);
-    if (!url) return response(400, { error: "Informe URL HTTPS pública do domínio frasesdoolavo.online, sem parâmetros." });
-    try { return response(200, { url, ...await inspectUrl(url) }); }
+    if (!url) return response(res, 400, { error: "Informe URL HTTPS pública do domínio frasesdoolavo.online, sem parâmetros." });
+    try { return response(res, 200, { url, ...await inspectUrl(url) }); }
     catch (error) {
       console.error("Consulta inconclusiva:", error.message);
-      return response(200, { url, status: "unknown", reason: error.message || "Falha na consulta.", checkedAt: new Date().toISOString() });
+      return response(res, 200, { url, status: "unknown", reason: error.message || "Falha na consulta.", checkedAt: new Date().toISOString() });
     }
   }
-  if (action === "status" && method === "GET") return response(200, { authenticated: true });
-  return response(404, { error: "Operação não encontrada." });
+  if (action === "status" && method === "GET") return response(res, 200, { authenticated: true });
+  return response(res, 404, { error: "Operação não encontrada." });
 };
