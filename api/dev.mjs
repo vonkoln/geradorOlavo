@@ -49,8 +49,10 @@ function validSession(event, secret) {
 function originAllowed(event) {
   const origin = event.headers.origin;
   if (!origin) return false;
-  try { return new URL(origin).host.toLowerCase() === String(event.headers.host || "").toLowerCase(); }
-  catch { return false; }
+  // Valida contra as origens oficiais, sem depender do Host interno que a Vercel
+  // pode apresentar à função depois de um proxy ou redirecionamento.
+  return origin === "https://frasesdoolavo.online" ||
+    origin === "https://www.frasesdoolavo.online";
 }
 function parseBody(event) {
   try {
