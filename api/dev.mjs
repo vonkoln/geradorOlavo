@@ -205,7 +205,7 @@ export default async function handler(req, res) {
   const action = new URL(path, SITE_ORIGIN).searchParams.get("action");
   const sessionSecret = process.env.DEV_SESSION_SECRET;
   const configuredPassword = process.env.DEV_PASSWORD;
-  if (method === "OPTIONS") return response(res, res, res, 204, {});
+  if (method === "OPTIONS") return response(res, 204, {});
   if (!originAllowed(event)) return response(res, 403, { error: "Origem não autorizada." });
   if (action === "login" && method === "POST") {
     if (!sessionSecret || sessionSecret.length < 32 || !configuredPassword || configuredPassword.length < 16) {
