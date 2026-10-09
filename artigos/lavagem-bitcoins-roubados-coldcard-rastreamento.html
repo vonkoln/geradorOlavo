@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como os bitcoins roubados da Coldcard estão sendo lavados — Olavo Frases</title>
+  <meta name="description" content="Rastreamento do dinheiro roubado no caso Coldcard: CoinJoin, Wasabi, Tornado Cash, THORChain e conversão para Ether, com datas e limites da investigação.">
+  <meta name="theme-color" content="#17232d">
+  <link rel="canonical" href="https://frasesdoolavo.online/artigos/lavagem-bitcoins-roubados-coldcard-rastreamento.html">
+  <link rel="stylesheet" href="../reset.css">
+  <script src="../adsense.js" defer></script>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Como os bitcoins roubados da Coldcard estão sendo lavados">
+  <meta property="og:description" content="Uma linha do tempo das movimentações atribuídas aos operadores, das ferramentas de mistura às trocas entre redes.">
+  <meta property="og:url" content="https://frasesdoolavo.online/artigos/lavagem-bitcoins-roubados-coldcard-rastreamento.html">
+  <meta property="og:site_name" content="Olavo Frases">
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Olavo Frases, página inicial"><span class="brand-mark">OF</span><span class="brand-copy"><strong>OLAVO FRASES</strong><small>Ideias para pensar melhor</small></span></a>
+    <nav class="nav" aria-label="Navegação principal"><a class="nav-link" href="../index.html">Início</a><a class="nav-link active" href="../artigos.html" aria-current="page">Artigos</a><a class="nav-link" href="../sobre.html">Sobre</a></nav>
+  </div></header>
+  <main class="site-main article-main">
+    <article class="article-content">
+      <p class="eyebrow">RASTREAMENTO ON-CHAIN · CRIPTOATIVOS</p>
+      <h1>Como os bitcoins roubados da Coldcard estão sendo lavados — e o que ainda pode ser rastreado</h1>
+      <p class="article-meta"><span>INVESTIGAÇÃO E TECNOLOGIA</span><time datetime="2026-10-09">9 de outubro de 2026</time></p>
+      <p class="lead">Depois de uma primeira onda de transferências em minutos, boa parte dos bitcoins atribuídos ao ataque à Coldcard permaneceu parada por semanas. A movimentação posterior mostra que rastrear fundos roubados é uma corrida entre a transparência pública da blockchain, as ferramentas de ocultação e os controles de corretoras e investigadores.</p>
+      <p><strong>Importante:</strong> “lavagem” aqui descreve movimentações que analistas associaram ao esforço de dificultar o rastreamento de ativos roubados. Uma transferência para um serviço ou protocolo, isoladamente, não prova a identidade nem a intenção de todos os participantes. O texto resume dados publicados, sem instruções operacionais para ocultar recursos.</p>
+
+      <h2>Primeiro, o que significa “lavar” bitcoin?</h2>
+      <p>O Bitcoin não é anônimo por padrão. Seu livro-razão registra entradas, saídas, valores e horários, embora não traga o nome civil de cada titular. A lavagem de ativos tenta enfraquecer a ligação visível entre a origem ilícita e o destino final. Em análises on-chain, investigadores procuram agrupamentos de endereços, padrões de consolidação, transações em serviços de mistura e conversões entre redes ou ativos.</p>
+      <p>Essas técnicas não apagam o histórico original. Elas tornam mais complexa a atribuição e podem criar incerteza sobre qual saída corresponde a qual entrada. Empresas especializadas combinam os dados públicos com informações de corretoras, denúncias de vítimas, registros de serviços e, quando disponíveis, dados de investigação.</p>
+
+      <h2>Linha do tempo das movimentações conhecidas</h2>
+      <h3>30 de julho a 6 de agosto de 2026: drenagem e consolidação</h3>
+      <p>As primeiras ondas retiraram bitcoins de milhares de endereços associados a sementes vulneráveis. Em parte da atividade inicial, os fundos foram reunidos em endereços coletores e depois transferidos para endereços de armazenamento (“vaults”). Outras ondas usaram estruturas diferentes, o que levou pesquisadores a considerar a hipótese de múltiplos operadores. As transações iniciais foram rápidas; o gasto posterior dos fundos foi muito mais lento.</p>
+
+      <h3>4 de agosto: depósitos identificados em serviços de mistura</h3>
+      <p>A TRM Labs relatou ter rastreado cerca de <strong>64,9 BTC para Wasabi</strong> e <strong>200 ETH para Tornado Cash</strong> em 4 de agosto. A informação indica que parte dos ativos já havia chegado a serviços associados à mistura de transações. Não significa que todo o montante roubado tenha passado por esses serviços, nem que seja possível atribuir cada moeda a um usuário específico depois da mistura.</p>
+
+      <h3>Agosto: a maior parte permanece parada</h3>
+      <p>Em 14 de agosto, a Galaxy Research estimava que aproximadamente 1.778,84 BTC haviam sido roubados de mais de 8.600 endereços com alta confiança. Desse total, cerca de 1.531 BTC ainda não tinham se movido após o roubo; aproximadamente 246 BTC haviam sido transferidos. Segundo a análise, cerca de 65% do volume movimentado passou por transações CoinJoin e 35% seguiu para outras transações on-chain, incluindo cadeias de pagamentos sucessivos conhecidas como <em>peel chains</em>.</p>
+      <p>Uma peel chain não é, por si só, prova de lavagem: é um padrão em que parte do saldo segue adiante enquanto outra parcela pode ser separada. Investigadores o consideram junto com horários, valores, relações entre entradas e saídas e outros indícios.</p>
+
+      <h3>2 a 7 de setembro: THORChain, Ether e novas transações CoinJoin</h3>
+      <p>Em setembro, a Galaxy relatou que o operador atribuído à terceira onda começou a mover parte de um conjunto de fundos que havia permanecido parado. A análise pública apontou uma troca de cerca de <strong>20,5 BTC por Ether via THORChain</strong>, com destino a um endereço novo na rede Ethereum. A movimentação foi descrita como a primeira saída relevante dos grandes conjuntos principais observados até então.</p>
+      <p>O processo não foi totalmente linear: relatos indicaram tentativas de troca que foram reembolsadas e depois reenviadas. Não há confirmação pública conclusiva sobre a causa específica dessas devoluções. Em 7 de setembro, o The Block informou que o operador da terceira onda havia movimentado <strong>97,09 BTC</strong> no total até aquele momento, cerca de 45% dos fundos atribuídos àquela onda. A Galaxy estimava então que aproximadamente 82% do total atribuído ao incidente permanecia nos endereços originais dos operadores.</p>
+      <p>Esses números têm escopos diferentes: 97,09 BTC se referia à terceira onda e à atualização noticiada em setembro; 82% era a estimativa relativa ao conjunto mais amplo acompanhado pela Galaxy. Não se deve somar os valores como se fossem categorias independentes.</p>
+
+      <h2>Por que CoinJoin e pontes entre redes dificultam a análise?</h2>
+      <p><strong>CoinJoin</strong> é uma técnica de privacidade em que participantes combinam entradas e saídas em uma transação coordenada, tornando menos direta a associação entre uma entrada e uma saída específica. Analistas ainda podem observar a transação, mas a atribuição pode ficar menos segura. O uso de CoinJoin não é prova automática de crime; neste caso, o interesse investigativo vem da ligação contextual com fundos já atribuídos ao roubo.</p>
+      <p><strong>Protocolos de troca entre redes</strong>, como o THORChain, permitem trocar ativos nativos de diferentes blockchains sem depender necessariamente de uma corretora centralizada. Isso pode levar o rastro de Bitcoin para a rede Ethereum ou para outros ativos, exigindo análise cruzada entre livros-razão. A troca não apaga a origem, mas amplia a superfície da investigação e pode complicar a aplicação de controles concentrados em uma única rede.</p>
+      <p><strong>Tornado Cash</strong> é um protocolo de privacidade na rede Ethereum. A TRM informou depósitos associados ao caso; essa observação não permite concluir que os fundos ainda estejam lá, que todos os depósitos pertençam ao mesmo operador ou que o valor inteiro tenha sido recuperado ou congelado.</p>
+
+      <h2>Os fundos ainda podem ser acompanhados?</h2>
+      <p>Sim, em muitos casos. A blockchain pública permite acompanhar transações e identificar quando ativos atribuídos a um roubo chegam a endereços conhecidos, serviços ou intermediários centralizados. A Galaxy disse ter compartilhado listas de endereços com corretoras, firmas de compliance e autoridades policiais para facilitar alertas e possíveis bloqueios se os fundos chegarem a plataformas com controles de custódia.</p>
+      <p>Mas <strong>rastrear não é o mesmo que congelar</strong>. Um investigador pode observar uma transferência sem saber quem a iniciou; um endereço pode ser controlado por alguém não identificado; e protocolos descentralizados não oferecem necessariamente uma entidade única capaz de interromper uma transação. O bloqueio costuma depender de um intermediário com custódia ou de uma medida legal aplicável. Mesmo quando um serviço coopera, a conversão em outro ativo pode ocorrer antes de qualquer intervenção.</p>
+      <p>Também existe risco de falsos positivos: agrupamentos de endereços são inferências, não registros de identidade civil. Uma análise responsável precisa indicar a fonte, a data de corte e o nível de confiança. As empresas citadas não afirmam que todos os fundos foram recuperados.</p>
+
+      <h2>O que sabemos — e o que ainda não sabemos</h2>
+      <ul>
+        <li><strong>Bem documentado:</strong> o início das drenagens em 30 de julho de 2026; o defeito de geração de sementes descrito pelos pesquisadores; as estimativas de perdas da Galaxy; e movimentações posteriores reportadas por TRM Labs e Galaxy.</li>
+        <li><strong>Observado, mas sujeito a interpretação:</strong> a relação entre diferentes ondas, a atribuição de determinados endereços a um mesmo operador e o objetivo de cada transação posterior.</li>
+        <li><strong>Não estabelecido publicamente:</strong> a identidade civil dos responsáveis, o destino final de todos os fundos e a recuperação integral dos bitcoins.</li>
+      </ul>
+      <p>A diferença é fundamental. Uma análise pode seguir o caminho de moedas entre endereços, mas não necessariamente provar quem estava ao teclado ou quem controla o último destino. Em investigações de criptoativos, a qualidade da conclusão depende tanto dos dados quanto da honestidade sobre o que esses dados não demonstram.</p>
+
+      <h2>Fontes e acompanhamento</h2>
+      <ul>
+        <li><a href="https://www.galaxy.com/insights/research/coldcard-exploit-abates-as-total-losses-climb-to-at-least-1700-btc" target="_blank" rel="noopener noreferrer">Galaxy Research — perdas, CoinJoin e fundos ainda parados (14/08/2026)</a></li>
+        <li><a href="https://www.theblock.co/news/defi/2026-09-07-coldcard-exploiter-moves-wave-3-413661" target="_blank" rel="noopener noreferrer">The Block — movimentação de 97,09 BTC da terceira onda (07/09/2026)</a></li>
+        <li><a href="https://cointelegraph.com/news/coldcard-hacker-swaps-stolen-bitcoin-eth-thorchain" target="_blank" rel="noopener noreferrer">Cointelegraph — troca de bitcoin por Ether via THORChain (03/09/2026)</a></li>
+        <li><a href="https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack" target="_blank" rel="noopener noreferrer">TRM Labs — análise técnica e movimentações observadas (05/08/2026)</a></li>
+        <li><a href="https://www.coldcardwatch.com/" target="_blank" rel="noopener noreferrer">Coldcard Watch — monitoramento público de endereços</a></li>
+      </ul>
+      <p class="article-note">Atualizado em 9 de outubro de 2026. As cifras em dólares dependem do preço de mercado na data de cada publicação. Este artigo é informativo; atribuições on-chain podem ser revistas e não constituem aconselhamento financeiro ou jurídico.</p>
+      <nav class="related-reading" aria-label="Leituras relacionadas"><h2>Leia também</h2><ul><li><a href="hack-coldcard-carteiras-drenadas.html">O hack da Coldcard: como carteiras frias foram drenadas quase simultaneamente</a></li><li><a href="requisitos-ministro-stf-constituicao.html">O que a Constituição exige para alguém ser ministro do STF?</a></li><li><a href="../artigos.html">Voltar à biblioteca de artigos</a></li></ul></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p>Olavo Frases — ideias para pensar melhor.</p><nav aria-label="Links do rodapé"><a href="../sobre.html">Sobre</a><a href="../contato.html">Contato</a><a href="../privacidade.html">Privacidade</a></nav></div></footer>
+</body>
+</html>
