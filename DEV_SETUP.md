@@ -1,12 +1,12 @@
 # Configuração do Modo Desenvolvedor
 
-O painel fica em \`/dev\` e usa uma Netlify Function para autenticar a sessão e consultar a Google Search Console URL Inspection API. A página HTML, por si só, não concede acesso: todas as operações da API exigem uma sessão assinada pelo servidor.
+O painel fica em \`/dev\` e usa uma Vercel Function para autenticar a sessão e consultar a Google Search Console URL Inspection API. A página HTML, por si só, não concede acesso: todas as operações da API exigem uma sessão assinada pelo servidor.
 
 ## 1. Configurar a hospedagem
 
-Este projeto é estático e a implementação usa Netlify Functions. Publique a branch \`master\` em um site Netlify com Functions habilitadas. O arquivo \`netlify.toml\` cria os caminhos \`/dev\` e \`/api/dev\`.
+Este projeto é estático e a implementação usa Vercel Functions. Publique a branch \`master\` em um site Vercel com Functions habilitadas. O arquivo \`netlify.toml\` cria os caminhos \`/dev\` e \`/api/dev\`.
 
-No painel da Netlify, abra **Site configuration → Environment variables** e crie:
+No painel da Vercel, abra **Settings → Environment Variables** e crie:
 
 - \`DEV_PASSWORD\`: senha forte e exclusiva, com pelo menos 16 caracteres.
 - \`DEV_SESSION_SECRET\`: segredo aleatório com pelo menos 32 caracteres.
@@ -18,14 +18,14 @@ Gere um segredo de sessão localmente com, por exemplo:
 openssl rand -base64 48
 \`\`\`
 
-Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis no ambiente de produção da Netlify e acione um novo deploy. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
+Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis no ambiente de produção da Vercel e acione um novo deploy. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
 
 ## 2. Configurar Google Cloud
 
 1. Abra o [Google Cloud Console](https://console.cloud.google.com/), crie ou selecione um projeto.
 2. Em **APIs & Services → Library**, procure e ative **Google Search Console API**.
 3. Em **IAM & Admin → Service Accounts**, crie uma conta de serviço para o monitor.
-4. Crie uma chave JSON para essa conta e guarde o arquivo em local seguro. Copie o conteúdo completo para a variável de ambiente \`GOOGLE_SERVICE_ACCOUNT_JSON\` na Netlify. Não faça upload da chave para o repositório.
+4. Crie uma chave JSON para essa conta e guarde o arquivo em local seguro. Copie o conteúdo completo para a variável de ambiente \`GOOGLE_SERVICE_ACCOUNT_JSON\` na Vercel. Não faça upload da chave para o repositório.
 5. Copie o e-mail da conta de serviço (campo \`client_email\`).
 6. Abra o [Google Search Console](https://search.google.com/search-console/), selecione a propriedade de prefixo de URL **\`https://frasesdoolavo.online/\`** e vá a **Configurações → Usuários e permissões**.
 7. Adicione o e-mail da conta de serviço como usuário com permissão suficiente para consultar a propriedade (preferencialmente **Completo**). A conta que administra o Search Console precisa ter autorização para conceder esse acesso.
@@ -56,4 +56,4 @@ O estado é o que o Google conhece no momento da inspeção e pode mudar. Não g
 - O cache em memória também pode ser reiniciado por uma nova instância ou deploy. A verificação em massa é sequencial, mas deve ser usada com cuidado para não exceder as cotas do Google.
 - A descoberta usa o sitemap e os links de páginas públicas conhecidas; páginas órfãs que não estejam ligadas nem no sitemap podem não aparecer.
 - Se a integração ainda não estiver configurada, as consultas aparecem como desconhecidas com uma mensagem explicativa; o painel não inventa resultados.
-- Se o site não estiver efetivamente hospedado na Netlify, os arquivos de Functions e os redirects não serão executados em uma hospedagem puramente estática. Nesse caso, o backend precisa ser implantado em um ambiente compatível antes que o painel possa consultar a API.
+- A função `api/dev.mjs` usa o formato de handler Node.js da Vercel. O painel só consulta o Google depois que as variáveis de ambiente e as permissões da conta de serviço estiverem configuradas no projeto Vercel ligado ao domínio.
