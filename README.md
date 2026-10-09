@@ -74,3 +74,7 @@ Este projeto é uma publicação editorial estática. Recursos que dependam de s
 ## Licença
 
 Nenhuma licença específica foi definida neste repositório. Entre em contato com o responsável pelo projeto antes de reutilizar o conteúdo ou os materiais de forma que exija autorização.
+
+## Modo Desenvolvedor: monitor de indexação
+
+O painel privado de indexação do Google está disponível em `/dev` após configurar as variáveis de ambiente da Netlify e a conta de serviço do Google Search Console. Consulte [`DEV_SETUP.md`](DEV_SETUP.md) para o procedimento de configuração, permissões, segurança e teste. A integração depende dessas configurações externas; sem elas, o painel informa o estado como desconhecido, sem simular resultados.
