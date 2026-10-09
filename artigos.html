@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artigos e análises — Olavo Frases</title>
   <meta name="description" content="Leia artigos, análises e reflexões sobre filosofia, cultura, educação, política e instituições no Olavo Frases.">
-  <meta name="theme-color" content="#17232d">
+  <meta name="theme-color" content="#252c2b">
   <link rel="canonical" href="https://frasesdoolavo.online/artigos.html">
   <link rel="stylesheet" href="reset.css">
   <script src="adsense.js" defer></script>
@@ -13,6 +13,21 @@
   <meta property="og:title" content="Artigos e análises — Olavo Frases">
   <meta property="og:description" content="Textos e reflexões para aprofundar ideias além das citações.">
   <meta property="og:url" content="https://frasesdoolavo.online/artigos.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Artigos e análises — Olavo Frases",
+    "url": "https://frasesdoolavo.online/artigos.html",
+    "description": "Artigos, análises e reflexões sobre política, instituições, tecnologia, cultura e esportes.",
+    "inLanguage": "pt-BR",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Olavo Frases",
+      "url": "https://frasesdoolavo.online/"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +51,7 @@
       <p class="lead">Textos para ir além da frase, conhecer os argumentos e refletir sobre os temas em seu contexto.</p>
       <label class="archive-search-label" for="article-search">Buscar no arquivo</label>
       <input class="archive-search" id="article-search" type="search" placeholder="Buscar por título, resumo ou tema…" autocomplete="off">
-      <div class="topic-list" aria-label="Filtrar por tema">
+      <div class="topic-list" id="temas" aria-label="Filtrar por tema">
         <button class="topic-chip active" type="button" data-filter="all" aria-pressed="true">Todos os temas</button>
         <button class="topic-chip" type="button" data-filter="política" aria-pressed="false">Política e instituições</button>
         <button class="topic-chip" type="button" data-filter="tecnologia" aria-pressed="false">Tecnologia e segurança</button>
@@ -104,7 +119,6 @@
           </div>
           <span class="archive-card-number" aria-hidden="true">06</span>
         </article>
-      </div>
         <article class="article-card archive-card" data-category="tecnologia" data-search="OpenAI 722 manuscritos matemática inteligência artificial modelo não lançado singularidade tecnológica Isaac Asimov Skynet Resident Evil Red Queen">
           <div class="article-card-body">
             <p class="article-meta"><span>TECNOLOGIA E REFLEXÃO</span><time datetime="2026-10-09">9 de outubro de 2026</time></p>
@@ -114,6 +128,7 @@
           </div>
           <span class="archive-card-number" aria-hidden="true">07</span>
         </article>
+      </div>
       <div class="empty-state" id="empty-state" hidden>
         <h3>Nenhum artigo encontrado</h3>
         <p>Tente outro termo ou selecione “Todos os temas”.</p>
