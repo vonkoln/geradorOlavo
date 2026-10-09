@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://olavofrases.netlify.app/sitemap.xml
+Sitemap: https://frasesdoolavo.online/sitemap.xml
