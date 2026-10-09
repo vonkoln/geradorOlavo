@@ -4,7 +4,7 @@ O painel fica em \`/dev\` e usa uma Vercel Function para autenticar a sessão e 
 
 ## 1. Configurar a hospedagem
 
-Este projeto é estático e a implementação usa Vercel Functions. Publique a branch \`master\` em um site Vercel com Functions habilitadas. O arquivo \`netlify.toml\` cria os caminhos \`/dev\` e \`/api/dev\`.
+Este projeto é estático e a implementação usa Vercel Functions. Publique a branch \`master\` em um site Vercel com Functions habilitadas. O arquivo \`vercel.json\` cria os caminhos \`/dev\` e \`/api/dev\`.
 
 No painel da Vercel, abra **Settings → Environment Variables** e crie:
 
