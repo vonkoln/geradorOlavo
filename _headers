@@ -1,0 +1,9 @@
+# Keep the Pages-hosted preview out of search results
+https://*.geradorolavo.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Preserve security and indexing headers for the development page
+/dev.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
