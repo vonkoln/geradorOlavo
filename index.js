@@ -15,7 +15,7 @@ async function loadQuotes() {
     const response = await fetch("olavo.json");
     if (!response.ok) throw new Error("Não foi possível carregar a coleção.");
     const data = await response.json();
-    quotes = data.map(item => (item.olavo || "").trim()).filter(Boolean);
+    quotes = [...new Set(data.map(item => (item.olavo || "").trim()).filter(Boolean))];
     if (!quotes.length) throw new Error("A coleção está vazia.");
     generateButton.disabled = false;
   } catch (error) {
