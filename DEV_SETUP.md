@@ -57,3 +57,21 @@ O estado é o que o Google conhece no momento da inspeção e pode mudar. Não g
 - A descoberta usa o sitemap e os links de páginas públicas conhecidas; páginas órfãs que não estejam ligadas nem no sitemap podem não aparecer.
 - Se a integração ainda não estiver configurada, as consultas aparecem como desconhecidas com uma mensagem explicativa; o painel não inventa resultados.
 - A função `api/dev.mjs` usa o formato de handler Node.js da Vercel. O painel só consulta o Google depois que as variáveis de ambiente e as permissões da conta de serviço estiverem configuradas no projeto Vercel ligado ao domínio.
+
+
+## 4. Migração de teste para Cloudflare Pages
+
+A branch `cloudflare-migration-test` contém uma implementação separada da função para Cloudflare Pages em `functions/api/dev.js`. A função da Vercel (`api/dev.mjs`) continua preservada. **Não altere o DNS nem associe o domínio oficial durante os testes.**
+
+No painel Cloudflare, abra **Workers & Pages → geradorolavo → Settings → Variables and Secrets** e configure os seguintes valores no ambiente **Preview** antes de testar o login:
+
+- `DEV_PASSWORD` — senha de desenvolvedor, guardada como secret.
+- `DEV_SESSION_SECRET` — segredo aleatório com pelo menos 32 caracteres, guardado como secret.
+- `GOOGLE_SERVICE_ACCOUNT_JSON` — JSON completo da conta de serviço, guardado como secret.
+- `DEV_ALLOWED_ORIGINS` — variável de texto com as origens permitidas separadas por vírgula. Para o teste, inclua a origem exata do alias de preview `https://cloudflare-migration-test.geradorolavo.pages.dev` e, se necessário, as origens oficiais `https://frasesdoolavo.online,https://www.frasesdoolavo.online`.
+
+Configure os valores de Preview e Production separadamente. No ambiente **Production**, `DEV_ALLOWED_ORIGINS` deve conter somente `https://frasesdoolavo.online,https://www.frasesdoolavo.online`; não permita o alias de preview no ambiente de produção. Não coloque credenciais em arquivos do repositório, nem as envie por chat.
+
+Depois que o deploy da branch estiver concluído, teste a página `/dev`. Sem as variáveis, a página pode carregar, mas o login e as consultas não funcionarão. Confirme primeiro que o login é aceito e que o endpoint de status responde; depois teste a descoberta de URLs e uma inspeção individual. A implementação usa a API de inspeção do Google apenas para URLs públicas do domínio oficial.
+
+A proteção básica contra tentativas de login e o cache dessa implementação são mantidos em memória por instância; não são um limitador global distribuído. Para um painel de uso sensível, considere uma proteção adicional no nível da plataforma antes de depender dele em produção.
