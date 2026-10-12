@@ -330,3 +330,14 @@ input[type="search"]:focus { border-color: var(--accent); outline: 2px solid #d9
   text-underline-offset: 3px;
 }
 .article-byline a:hover { text-decoration-thickness: 2px; }
+
+
+/* Biografia do autor ao final de cada artigo */
+.article-author-bio {
+  margin: 28px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
