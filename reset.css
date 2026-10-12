@@ -311,3 +311,22 @@ input[type="search"]:focus { border-color: var(--accent); outline: 2px solid #d9
   font-weight: 800;
 }
 .table-wrap tr:last-child td { border-bottom: 0; }
+
+
+/* Assinatura padronizada dos artigos */
+.article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 5px;
+  margin: 12px 0 24px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.article-byline a {
+  color: var(--accent-dark);
+  font-weight: 650;
+  text-underline-offset: 3px;
+}
+.article-byline a:hover { text-decoration-thickness: 2px; }
