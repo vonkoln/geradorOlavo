@@ -35,7 +35,7 @@ Site estático para explorar frases atribuídas a Olavo de Carvalho e publicar a
 - CSS
 - JavaScript
 - JSON para os dados das frases
-- Vercel para hospedagem estática e Vercel Functions para o endpoint privado
+- Cloudflare Pages para hospedagem do site estático (conforme a arquitetura atual do projeto)
 
 Não é necessário instalar dependências para editar ou executar a versão estática.
 
@@ -77,4 +77,4 @@ Nenhuma licença específica foi definida neste repositório. Entre em contato c
 
 ## Modo Desenvolvedor: monitor de indexação
 
-O painel privado de indexação do Google está disponível em `/dev` após configurar as variáveis de ambiente da Vercel e a conta de serviço do Google Search Console. Consulte [`DEV_SETUP.md`](DEV_SETUP.md) para o procedimento de configuração, permissões, segurança e teste. A integração depende dessas configurações externas; sem elas, o painel informa o estado como desconhecido, sem simular resultados.
+O painel de indexação estático fica em `/dev.html`, mas sua API (`api/dev.mjs`) e as regras de roteamento em `vercel.json` foram escritas para Vercel. A hospedagem atual informada é Cloudflare Pages; portanto, não considere o monitor funcional nessa hospedagem até migrar e testar a API como Cloudflare Pages Function. Consulte [`DEV_SETUP.md`](DEV_SETUP.md) para o estado e os requisitos de migração. Não publique credenciais no repositório.
