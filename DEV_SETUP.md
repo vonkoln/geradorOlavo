@@ -1,26 +1,28 @@
 # Configuração do Modo Desenvolvedor
 
-O painel fica em \`/dev\` e usa uma Vercel Function para autenticar a sessão e consultar a Google Search Console URL Inspection API. A página HTML, por si só, não concede acesso: todas as operações da API exigem uma sessão assinada pelo servidor.
+## Estado atual
 
-## 1. Configurar a hospedagem
+O site está hospedado no Cloudflare Pages, conforme a arquitetura atual do projeto. A interface está em `dev.html`, mas a API `api/dev.mjs` e as regras em `vercel.json` foram escritas para Vercel Functions e não são executadas automaticamente pelo Cloudflare Pages.
 
-Este projeto é estático e a implementação usa Vercel Functions. Publique a branch \`master\` em um site Vercel com Functions habilitadas. O arquivo \`vercel.json\` cria os caminhos \`/dev\` e \`/api/dev\`.
+**O monitor não deve ser considerado funcional na hospedagem atual até que a API seja migrada e testada.** A migração precisa adaptar o handler para Cloudflare Pages Functions (por exemplo, `functions/api/dev.js`), usar o contrato `Request/Response`, configurar variáveis de ambiente no ambiente correto e validar autenticação, expiração de sessão, proteção de endpoints e integração com a Search Console. Não copie segredos para o repositório.
 
-No painel da Vercel, abra **Settings → Environment Variables** e crie:
+## Configuração legada da Vercel (referência, não instrução de deploy atual)
 
-- \`DEV_PASSWORD\`: senha forte e exclusiva, com pelo menos 16 caracteres.
-- \`DEV_SESSION_SECRET\`: segredo aleatório com pelo menos 32 caracteres.
-- \`GOOGLE_SERVICE_ACCOUNT_JSON\`: conteúdo JSON completo da chave de uma conta de serviço do Google Cloud, incluindo \`client_email\` e \`private_key\`.
+A implementação antiga usava Vercel Functions e as seguintes variáveis de ambiente:
+
+- `DEV_PASSWORD`: senha forte e exclusiva, com pelo menos 16 caracteres.
+- `DEV_SESSION_SECRET`: segredo aleatório com pelo menos 32 caracteres.
+- `GOOGLE_SERVICE_ACCOUNT_JSON`: conteúdo JSON completo da chave de uma conta de serviço do Google Cloud, incluindo `client_email` e `private_key`.
 
 Gere um segredo de sessão localmente com, por exemplo:
 
-\`\`\`bash
+```bash
 openssl rand -base64 48
-\`\`\`
+```
 
-Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis no ambiente de produção da Vercel e acione um novo deploy. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
+Crie uma senha longa e exclusiva em um gerenciador de senhas. Na antiga implantação da Vercel, essas variáveis eram definidas em **Settings → Environment Variables**. Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas. Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
 
-## 2. Configurar Google Cloud
+## Configurar Google Cloud
 
 1. Abra o [Google Cloud Console](https://console.cloud.google.com/), crie ou selecione um projeto.
 2. Em **APIs & Services → Library**, procure e ative **Google Search Console API**.
