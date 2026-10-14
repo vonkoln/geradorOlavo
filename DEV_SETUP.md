@@ -2,11 +2,11 @@
 
 O painel fica em \`/dev\` e usa uma Vercel Function para autenticar a sessão e consultar a Google Search Console URL Inspection API. A página HTML, por si só, não concede acesso: todas as operações da API exigem uma sessão assinada pelo servidor.
 
-## 1. Configurar a hospedagem
+## 1. Estado atual e migração necessária\n\nO projeto foi migrado para Cloudflare Pages. Este arquivo descreve a implementação antiga da API na Vercel e serve como referência para migração, não como procedimento de deploy atual. Antes de considerar o monitor `/dev` funcional, portar `api/dev.mjs` para uma Cloudflare Pages Function em `functions/api/dev.js` (ou estrutura equivalente suportada), adaptar o handler para o contrato Request/Response do Cloudflare, configurar variáveis no ambiente correto e testar login, expiração da sessão, proteção da API e chamadas à Search Console. Não reutilize a implementação de Vercel sem adaptação.\n\n## 2. Configuração legada da Vercel (referência)
 
 Este projeto é estático e a implementação usa Vercel Functions. Publique a branch \`master\` em um site Vercel com Functions habilitadas. O arquivo \`vercel.json\` cria os caminhos \`/dev\` e \`/api/dev\`.
 
-No painel da Vercel, abra **Settings → Environment Variables** e crie:
+Na implantação antiga da Vercel, as variáveis eram definidas em **Settings → Environment Variables** e crie:
 
 - \`DEV_PASSWORD\`: senha forte e exclusiva, com pelo menos 16 caracteres.
 - \`DEV_SESSION_SECRET\`: segredo aleatório com pelo menos 32 caracteres.
@@ -20,7 +20,7 @@ openssl rand -base64 48
 
 Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis no ambiente de produção da Vercel e acione um novo deploy. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
 
-## 2. Configurar Google Cloud
+## 3. Configurar Google Cloud
 
 1. Abra o [Google Cloud Console](https://console.cloud.google.com/), crie ou selecione um projeto.
 2. Em **APIs & Services → Library**, procure e ative **Google Search Console API**.
