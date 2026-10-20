@@ -371,3 +371,33 @@ input[type="search"]:focus { border-color: var(--accent); outline: 2px solid #d9
   .article-author-card { gap: 11px; font-size: .86rem; }
   .article-author-card__photo { flex-basis: 64px; width: 64px; height: 64px; }
 }
+
+
+/* International language selector */
+.language-picker { display: inline-flex; align-items: center; }
+.language-picker select, .nav select {
+  max-width: 100%;
+  min-height: 38px;
+  padding: 7px 28px 7px 10px;
+  border: 1px solid #66716f;
+  border-radius: 4px;
+  background: #252c2b;
+  color: #fff;
+  font: inherit;
+  font-size: .82rem;
+}
+.language-picker select:focus-visible, .nav select:focus-visible {
+  outline: 3px solid #d9aab4;
+  outline-offset: 3px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
