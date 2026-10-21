@@ -31,4 +31,88 @@
   <url><loc>https://frasesdoolavo.online/fr/articles.html</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/artigos.html"/><xhtml:link rel="alternate" hreflang="en" href="https://frasesdoolavo.online/en/articles.html"/><xhtml:link rel="alternate" hreflang="es" href="https://frasesdoolavo.online/es/articulos.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/articles.html"/><xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/artikel.html"/><xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/articoli.html"/><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://frasesdoolavo.online/de/artikel.html</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/artigos.html"/><xhtml:link rel="alternate" hreflang="en" href="https://frasesdoolavo.online/en/articles.html"/><xhtml:link rel="alternate" hreflang="es" href="https://frasesdoolavo.online/es/articulos.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/articles.html"/><xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/artikel.html"/><xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/articoli.html"/><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://frasesdoolavo.online/it/articoli.html</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/artigos.html"/><xhtml:link rel="alternate" hreflang="en" href="https://frasesdoolavo.online/en/articles.html"/><xhtml:link rel="alternate" hreflang="es" href="https://frasesdoolavo.online/es/articulos.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/articles.html"/><xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/artikel.html"/><xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/articoli.html"/><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://frasesdoolavo.online/fr/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/sobre.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/about.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/about.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/sobre.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/fr/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/contato.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/contact.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/contact.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/contato.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/fr/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/privacidade.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/privacy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/privacy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/privacidade.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/fr/economy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/economia.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/economy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/economy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/economy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/economia.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/de/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/sobre.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/about.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/about.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/sobre.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/de/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/contato.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/contact.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/contact.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/contato.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/de/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/privacidade.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/privacy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/privacy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/privacidade.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/de/economy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/economia.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/economy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/economy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/economy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/economia.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/it/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/sobre.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/about.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/about.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/sobre.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/it/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/contato.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/contact.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/contact.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/contato.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/it/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/privacidade.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/privacy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/privacy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/privacidade.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frasesdoolavo.online/it/economy.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://frasesdoolavo.online/economia.html"/>    <xhtml:link rel="alternate" hreflang="fr" href="https://frasesdoolavo.online/fr/economy.html"/>    <xhtml:link rel="alternate" hreflang="de" href="https://frasesdoolavo.online/de/economy.html"/>    <xhtml:link rel="alternate" hreflang="it" href="https://frasesdoolavo.online/it/economy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frasesdoolavo.online/economia.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
