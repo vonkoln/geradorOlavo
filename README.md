@@ -8,7 +8,7 @@ Publicação editorial independente que reúne frases atribuídas a Olavo de Car
 
 - Código-fonte versionado no GitHub: `vonkoln/geradorOlavo`, branch principal `master`.
 - Domínio registrado na Hostinger.
-- Hospedagem estática pretendida/atual: Cloudflare Pages.
+- Hospedagem declarada pelo projeto: Cloudflare Pages; a implantação ao vivo não foi validada nesta auditoria.
 - O projeto é majoritariamente HTML, CSS, JavaScript e JSON, sem `package.json` nem etapa de build definida no repositório.
 - O arquivo `vercel.json` ainda existe e contém regras específicas da Vercel para `/dev` e cabeçalhos. Essas regras não são automaticamente aplicadas pelo Cloudflare Pages. A configuração pública de DNS, implantação e eventuais funções externas deve ser verificada no painel do provedor; não é inferida apenas a partir deste repositório.
 
