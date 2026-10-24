@@ -18,7 +18,7 @@ Gere um segredo de sessão localmente com, por exemplo:
 openssl rand -base64 48
 \`\`\`
 
-Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis no ambiente de produção da Vercel e acione um novo deploy. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
+Crie uma senha longa e exclusiva em um gerenciador de senhas. Não use a mesma senha de outros serviços. Configure as três variáveis somente no projeto/ambiente da Vercel que estiver sendo usado para testar a implementação legada e acione um novo deploy de teste. **Nunca coloque a senha, o segredo ou o JSON da chave em HTML, JavaScript público, commits, issues ou mensagens públicas.** Se uma chave privada for exposta acidentalmente, revogue-a no Google Cloud e crie outra.
 
 ## 2. Configurar Google Cloud
 
@@ -56,4 +56,4 @@ O estado é o que o Google conhece no momento da inspeção e pode mudar. Não g
 - O cache em memória também pode ser reiniciado por uma nova instância ou deploy. A verificação em massa é sequencial, mas deve ser usada com cuidado para não exceder as cotas do Google.
 - A descoberta usa o sitemap e os links de páginas públicas conhecidas; páginas órfãs que não estejam ligadas nem no sitemap podem não aparecer.
 - Se a integração ainda não estiver configurada, as consultas aparecem como desconhecidas com uma mensagem explicativa; o painel não inventa resultados.
-- A função `api/dev.mjs` usa o formato de handler Node.js da Vercel. O painel só consulta o Google depois que as variáveis de ambiente e as permissões da conta de serviço estiverem configuradas no projeto Vercel ligado ao domínio.
+- A função `api/dev.mjs` ainda usa o formato de handler Node.js da Vercel. Até a migração e os testes no runtime atual do Cloudflare, trate a compatibilidade do monitor como pendente. O painel só consulta o Google depois que as variáveis de ambiente e as permissões da conta de serviço estiverem configuradas no runtime que realmente executa o endpoint.
