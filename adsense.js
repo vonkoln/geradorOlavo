@@ -9,6 +9,10 @@
   const publisherId = "ca-pub-0610793785321752";
   if (!/^ca-pub-\d{16}$/.test(publisherId)) return;
   if (document.querySelector('script[data-olavo-adsense="true"]')) return;
+  const publisherScriptAlreadyLoaded = Array.from(document.scripts).some((existing) =>
+    existing.src.includes("adsbygoogle.js") && existing.src.includes("client=" + publisherId)
+  );
+  if (publisherScriptAlreadyLoaded) return;
 
   const script = document.createElement("script");
   script.async = true;
