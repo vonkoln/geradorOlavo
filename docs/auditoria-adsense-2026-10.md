@@ -210,6 +210,7 @@ Nenhuma URL pública foi alterada. Nenhum artigo foi apagado. Nenhuma configura�
 - Inspeção dos 15 arquivos de artigo, incluindo títulos, H1, metadados, fontes externas presentes, ressalvas editoriais e algumas marcações estruturadas.
 - Inspeção das páginas de arquivo, institucionais e localizadas e dos caminhos declarados no sitemap.
 - Verificação estática do código dos filtros de artigos: aliases `politica`/`saude` são mapeados para categorias acentuadas; a contagem e o estado vazio são atualizados; o botão de limpar busca remove o parâmetro.
+- Checagem estática dos links internos HTML nas 51 páginas do sitemap: nenhum destino interno terminado em `.html` foi encontrado fora do conjunto de páginas conhecidas. Essa checagem não valida fragmentos de âncora, arquivos de imagem/CSS/JS nem disponibilidade HTTP.
 - Consulta do `robots.txt`, `ads.txt`, `sitemap.xml`, `README.md`, `vercel.json`, `dev.html` e modelo de artigo no repositório.
 - Comparação de branches e pull requests para evitar reutilizar branches antigas.
 - Pesquisa de fontes oficiais do Google, NIH ODS, American Thyroid Association, OMS e OpenAI.
