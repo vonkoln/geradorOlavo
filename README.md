@@ -1,80 +1,78 @@
-# Olavo Frases
+# Frases do Olavo
 
-Site estático para explorar frases atribuídas a Olavo de Carvalho e publicar artigos em formato editorial.
+Publicação editorial independente que reúne frases atribuídas a Olavo de Carvalho e publica artigos de análise, reportagem e reflexão. A coleção de citações e os artigos são conteúdos distintos; atribuições devem ser verificadas no contexto original sempre que possível.
 
 **Site:** https://frasesdoolavo.online/
 
+## Arquitetura atual
+
+- Código-fonte versionado no GitHub: `vonkoln/geradorOlavo`, branch principal `master`.
+- Domínio registrado na Hostinger.
+- Hospedagem estática pretendida/atual: Cloudflare Pages.
+- O projeto é majoritariamente HTML, CSS, JavaScript e JSON, sem `package.json` nem etapa de build definida no repositório.
+- O arquivo `vercel.json` ainda existe e contém regras específicas da Vercel para `/dev` e cabeçalhos. Essas regras não são automaticamente aplicadas pelo Cloudflare Pages. A configuração pública de DNS, implantação e eventuais funções externas deve ser verificada no painel do provedor; não é inferida apenas a partir deste repositório.
+
 ## Funcionalidades
 
-- Página inicial com apresentação do projeto e frase em destaque.
-- Gerador de frases com seleção aleatória sem repetição até percorrer a coleção.
-- Busca de frases por texto e opção para copiar o resultado.
-- Arquivo de artigos com pesquisa e filtro por tema.
-- Modelo HTML para criar novos artigos.
-- Layout responsivo para computadores e dispositivos móveis.
-- Metadados básicos de SEO e sitemap XML.\n- Páginas institucionais de Sobre, Contato e Política de Privacidade.\n- Integração condicional do script do Google AdSense, inativa até configurar o ID real do editor.
+- Página inicial com gerador e pesquisa de frases.
+- Coleção de frases em `olavo.json`; atualmente os registros contêm o texto da frase, sem metadados de fonte individual.
+- Arquivo de artigos com pesquisa, filtros por tema e contagem dinâmica.
+- Artigos em português e páginas de navegação/institucionais em português, inglês, espanhol, francês, alemão e italiano.
+- Páginas institucionais de Sobre, Contato e Política de Privacidade, além da seção Economia.
+- Modelo HTML de artigo com `noindex, follow`.
+- Metadados de SEO, canonicals, alternates de idioma, `sitemap.xml`, `robots.txt` e `ads.txt`.
+- Script de integração do Google AdSense presente em várias páginas. A presença do script ou de um registro em `ads.txt` não comprova aprovação da conta nem veiculação efetiva de anúncios.
 
-## Estrutura do projeto
+## Estrutura
 
-~~~text
-.
-├── index.html
-├── artigos.html
-├── index.js
-├── reset.css
-├── olavo.json
-├── sitemap.xml
-└── artigos/
-    ├── modelo-artigo.html
-    └── olavo-de-carvalho-stf-dias-toffoli-2010.html
-~~~
+- `index.html`, `index.js`, `olavo.json`: página inicial e coleção de frases.
+- `artigos.html`: arquivo de artigos em português.
+- `artigos/`: artigos publicados e `modelo-artigo.html`.
+- `en/`, `es/`, `fr/`, `de/`, `it/`: páginas localizadas.
+- `economia.html` e variantes localizadas: seção Economia.
+- `sobre.html`, `contato.html`, `privacidade.html` e variantes localizadas: páginas institucionais.
+- `reset.css`: estilos compartilhados.
+- `sitemap.xml`, `robots.txt`, `ads.txt`: arquivos de descoberta e configuração para crawlers/publicidade.
+- `dev.html`, `vercel.json` e `DEV_SETUP.md`: área de desenvolvimento e documentação associada. A disponibilidade de `/dev` e de seus serviços depende da implantação e de configurações externas; não deve ser considerada validada apenas pelo código.
 
-## Tecnologias
+## Desenvolvimento local
 
-- HTML5
-- CSS
-- JavaScript
-- JSON para os dados das frases
-- Vercel para hospedagem estática e Vercel Functions para o endpoint privado
-
-Não é necessário instalar dependências para editar ou executar a versão estática.
-
-## Como executar localmente
-
-1. Clone ou baixe este repositório.
+1. Clone ou baixe o repositório.
 2. Abra a pasta do projeto.
-3. Inicie um servidor HTTP local — por exemplo, a extensão **Live Server** do Visual Studio Code.
-4. Acesse a página inicial pelo endereço local fornecido pelo servidor.
+3. Inicie um servidor HTTP local, por exemplo, com a extensão Live Server do Visual Studio Code.
+4. Acesse a página inicial pelo endereço local do servidor.
 
-Usar um servidor HTTP local é recomendado para que o JavaScript consiga carregar o arquivo olavo.json corretamente.
+Usar um servidor HTTP local é recomendado para que o JavaScript consiga carregar `olavo.json` corretamente. Não há dependências npm declaradas no repositório.
 
 ## Como publicar um artigo
 
-1. Copie artigos/modelo-artigo.html.
-2. Dê ao arquivo um nome descritivo, usando hífens no lugar de espaços.
-3. Edite o título, a descrição, a data, o conteúdo e os metadados de compartilhamento.
-4. Mantenha a navegação e os caminhos relativos compatíveis com os arquivos dentro da pasta artigos/.
-5. Adicione o artigo à listagem em artigos.html.
-6. Inclua a URL canônica do novo artigo em sitemap.xml.
-7. Revise o texto, os links e as fontes antes de publicar.
+1. Copie `artigos/modelo-artigo.html` para um novo arquivo com nome descritivo.
+2. Atualize título, descrição, URL canônica, metadados de compartilhamento, idioma, data e autoria com informações verificadas.
+3. Escreva o texto com contexto e análise própria; diferencie fatos, alegações atribuídas, interpretação e incerteza.
+4. Inclua links diretos para fontes confiáveis e verifique a licença/atribuição de imagens.
+5. Confira os caminhos relativos, a navegação, a acessibilidade e o comportamento em telas pequenas.
+6. Adicione o artigo ao arquivo `artigos.html` e aos arquivos localizados quando for realmente útil e o idioma estiver claramente indicado.
+7. Inclua a URL pública no `sitemap.xml` e revise os alternates de idioma apenas quando houver páginas equivalentes reais.
+8. Valide o HTML, os links e os metadados antes de publicar.
 
 ## SEO e conteúdo
 
-- Use um título e uma descrição próprios para cada página.
-- Mantenha uma hierarquia clara de títulos HTML (h1, h2, h3).
-- Prefira URLs legíveis e estáveis.
-- Cite fontes verificáveis em artigos factuais.
-- Atualize o sitemap quando adicionar ou remover páginas públicas.
-- O sitemap, por si só, não garante que as páginas sejam indexadas pelos mecanismos de busca.
+- Use títulos e descrições únicos e informativos.
+- Mantenha uma hierarquia semântica de títulos e um H1 principal por página.
+- Preserve URLs canônicas estáveis e confirme redirecionamentos no ambiente publicado.
+- Cite fontes verificáveis em artigos factuais; em saúde, segurança e temas de impacto público, priorize fontes primárias, diretrizes e revisões confiáveis.
+- Não apresente artigos em português como se estivessem traduzidos; as páginas localizadas devem indicar claramente quando o artigo completo está disponível apenas em português.
+- Atualize o sitemap ao adicionar/remover páginas públicas. O sitemap não garante indexação.
+- O modelo de artigo deve permanecer fora do índice e não deve ser listado no sitemap.
 
-## Observações
+## Privacidade e publicidade
 
-Este projeto é uma publicação editorial estática. Recursos que dependam de servidor — como cadastro de usuários, comentários, newsletter ou envio de artigos por formulário — exigem serviços ou infraestrutura adicionais e não são fornecidos por este repositório.
+A política de privacidade deve refletir o código e os serviços efetivamente utilizados. O script do AdSense está presente em várias páginas do repositório; a veiculação depende da situação da conta e das configurações aplicáveis. Verifique as exigências de consentimento e mensagens de privacidade no painel do Google conforme os países dos visitantes. Esta documentação não constitui certificação jurídica ou garantia de conformidade.
+
+## Área de desenvolvimento
+
+A página `dev.html` inclui metadados `noindex, nofollow, noarchive`. O `vercel.json` contém uma regra legada para reescrever `/dev` para `/dev.html` e cabeçalhos de segurança no ambiente Vercel. Como o site foi migrado para Cloudflare Pages, valide separadamente o roteamento, a proteção de acesso, os cabeçalhos e os endpoints usados pela área privada no provedor realmente ativo. Não exponha chaves ou credenciais no repositório.
 
 ## Licença
 
-Nenhuma licença específica foi definida neste repositório. Entre em contato com o responsável pelo projeto antes de reutilizar o conteúdo ou os materiais de forma que exija autorização.
-
-## Modo Desenvolvedor: monitor de indexação
-
-O painel privado de indexação do Google está disponível em `/dev` após configurar as variáveis de ambiente da Vercel e a conta de serviço do Google Search Console. Consulte [`DEV_SETUP.md`](DEV_SETUP.md) para o procedimento de configuração, permissões, segurança e teste. A integração depende dessas configurações externas; sem elas, o painel informa o estado como desconhecido, sem simular resultados.
+Nenhuma licença geral de reutilização foi identificada neste repositório. Verifique as licenças específicas de imagens e outros materiais antes de reutilizá-los; a ausência de licença do projeto não autoriza a reprodução indiscriminada do conteúdo.
